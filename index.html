@@ -3,9 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Character Creator</title>
 </head>
-<body>
-    
+<body bgcolor="grey">
+    <!--Big text-->
+    <script>
+        let reserve_points = 5;
+    </script>
+    <script>
+        function increase(category) {
+            var stat = Number(document.getElementById(category).innerHTML);
+            if (stat < 10) {
+                if (reserve_points > 0) {
+                    document.getElementById(category).innerHTML = (stat+1);
+                    reserve_points -= 1;
+                    document.getElementById("reserve").innerHTML = (reserve_points);
+                } else {
+                    alert("You do not have any SPECIAL points left.")
+                }
+            } else {
+                alert("You cannot increase any stat above 10.");
+            }
+        }
+
+        function decrease(category) {
+            var stat = Number(document.getElementById(category).innerHTML);
+            if (stat > 1) {
+                document.getElementById(category).innerHTML = (stat-1);
+                reserve_points += 1;
+                document.getElementById("reserve").innerHTML = (reserve_points);
+            } else {
+                alert("You cannot decrease any stat below 1.");
+            }
+        }
+
+        
+    </script>
+    <h1>Character Creator</h1>
+    <br>
+    <p>Make your perfect character!</p>
+    <br>
+    <p>Remaining points to allocate: <span id="reserve">5</span></p>
+
+    <input type="button" value="-" onclick="decrease('strength')">
+    <label>Strength: <strong><span id="strength">5</span></strong></label>
+    <input type="button" value="+" onclick="increase('strength')">
+    <br><br>
+    <input type="button" value="-" onclick="decrease('perception')">
+    <label>Perception: <strong><span id="perception">5</span></strong></label>
+    <input type="button" value="+" onclick="increase('perception')">
+    <br><br>
+    <input type="button" value="-" onclick="decrease('endurance')">
+    <label>Endurance: <strong><span id="endurance">5</span></strong></label>
+    <input type="button" value="+" onclick="increase('endurance')">
+    <br><br>
+    <input type="button" value="-" onclick="decrease('charisma')">
+    <label>Charisma: <strong><span id="charisma">5</span></strong></label>
+    <input type="button" value="+" onclick="increase('charisma')">
+    <br><br>
+    <input type="button" value="-" onclick="decrease('intelligence')">
+    <label>Intelligence: <strong><span id="intelligence">5</span></strong></label>
+    <input type="button" value="+" onclick="increase('intelligence')">
+    <br><br>
+    <input type="button" value="-" onclick="decrease('agility')">
+    <label>Agility: <strong><span id="agility">5</span></strong></label>
+    <input type="button" value="+" onclick="increase('agility')">
+    <br><br>
+    <input type="button" value="-" onclick="decrease('luck')">
+    <label>Luck: <strong><span id="luck">5</span></strong></label>
+    <input type="button" value="+" onclick="increase('luck')">
 </body>
 </html>
